@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "tokenizer.h": "c",
+        "minishell.h": "c",
+        "history.h": "c",
+        "stdio.h": "c",
+        "libft.h": "c",
+        "parser.h": "c",
+        "executor.h": "c",
+        "utils.h": "c",
+        "sstream": "c"
+    }
+}

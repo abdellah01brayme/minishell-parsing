@@ -1,0 +1,26 @@
+parser:
+total 148
+-rw-r--r-- 1 aid-bray 2024_rabat 2943 Jul 30 06:45 expander.c
+-rw-r--r-- 1 aid-bray 2024_rabat 3065 Jul 30 06:00 expander_join_tokens.c
+-rw-r--r-- 1 aid-bray 2024_rabat 7640 Jul 30 06:21 expander_join_tokens.o
+-rw-r--r-- 1 aid-bray 2024_rabat 6496 Jul 30 06:42 expander.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2935 Jul 30 06:00 expander_tokens.c
+-rw-r--r-- 1 aid-bray 2024_rabat 7864 Jul 30 06:21 expander_tokens.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2791 Jul 30 05:23 expander_tools.c
+-rw-r--r-- 1 aid-bray 2024_rabat 7784 Jul 30 06:21 expander_tools.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2308 Jul 30 06:25 heredoc.c
+-rw-r--r-- 1 aid-bray 2024_rabat 5968 Jul 30 06:26 heredoc.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2561 Jul 30 06:00 heredoc_parser.c
+-rw-r--r-- 1 aid-bray 2024_rabat 6584 Jul 30 06:21 heredoc_parser.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2236 Jul 30 06:32 heredoc_read.c
+-rw-r--r-- 1 aid-bray 2024_rabat 5440 Jul 30 06:32 heredoc_read.o
+-rw-r--r-- 1 aid-bray 2024_rabat 1805 Jul 30 06:29 parser.c
+-rw-r--r-- 1 aid-bray 2024_rabat 5280 Jul 30 06:31 parser.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2463 Jul 30 06:08 set_commands.c
+-rw-r--r-- 1 aid-bray 2024_rabat 6976 Jul 30 06:31 set_commands.o
+-rw-r--r-- 1 aid-bray 2024_rabat 3635 Jul 30 06:09 tokenizer.c
+-rw-r--r-- 1 aid-bray 2024_rabat 8824 Jul 30 06:31 tokenizer.o
+-rw-r--r-- 1 aid-bray 2024_rabat 1607 Jul 30 06:37 tools.c
+-rw-r--r-- 1 aid-bray 2024_rabat 5376 Jul 30 06:37 tools.o
+-rw-r--r-- 1 aid-bray 2024_rabat 2020 Jul 30 05:24 valid_input.c
+-rw-r--r-- 1 aid-bray 2024_rabat 5288 Jul 30 06:34 valid_input.o
