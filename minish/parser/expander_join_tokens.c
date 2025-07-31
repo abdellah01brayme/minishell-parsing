@@ -6,13 +6,13 @@
 /*   By: aid-bray <aid-bray@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:23:47 by aid-bray          #+#    #+#             */
-/*   Updated: 2025/07/30 11:45:09 by aid-bray         ###   ########.fr       */
+/*   Updated: 2025/07/31 06:04:40 by aid-bray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parser.h"
 
-static int	check_ambiguous(t_redir *redir, t_token *token)
+int	check_ambiguous(t_redir *redir, t_token *token)
 {
 	while (token)
 	{
@@ -76,14 +76,21 @@ void	join_tokens_redir(t_redir *redir, t_token *tokens)
 	t_token	*tmp;
 
 	tmp = tokens;
-	if (check_ambiguous(redir, tokens))
-		return ;
-	new_token = ft_strdup("");
-	collect_malloc(new_token, CHECK);
+	new_token = NULL;
 	while (tmp)
 	{
 		new_token = ft_join(new_token, 1, tmp->str, 1);
 		tmp = tmp->next;
+		if (tokens && tokens->type == SPLIT)
+		{
+			redir->type = AMBIGUES;
+			return ;
+		}
+	}
+	if (!new_token)
+	{
+		redir->type = AMBIGUES;
+		return ;
 	}
 	collect_malloc(redir->file, DELETE);
 	redir->file = new_token;

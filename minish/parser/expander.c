@@ -6,13 +6,13 @@
 /*   By: aid-bray <aid-bray@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:23:55 by aid-bray          #+#    #+#             */
-/*   Updated: 2025/07/30 06:45:41 by aid-bray         ###   ########.fr       */
+/*   Updated: 2025/07/31 06:55:30 by aid-bray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parser.h"
 
-// static int	is_builtin(char *cmd)
+//int	is_builtin(char *cmd)
 // {
 // 	if (!ft_strcmp(cmd, "cd"))
 // 		return (CD);
@@ -81,6 +81,30 @@ static int	expand_args(t_list *list_args)
 	return (0);
 }
 
+static void	remove_null_args(t_cmd *cmd)
+{
+	t_list	*args;
+	t_list	*tmp;
+
+	args = cmd->args;
+	while (args && !args->content)
+	{
+		cmd->args = args->next;
+		collect_malloc(args, DELETE);
+		args = cmd->args;
+	}
+	while (args)
+	{
+		tmp = args;
+		args = args->next;
+		if (args && !args->content)
+		{
+			tmp->next = args->next;
+			collect_malloc(args, DELETE);
+		}
+	}
+}
+
 int	expand(t_list *list_cmd)
 {
 	t_list	*tmp;
@@ -90,10 +114,9 @@ int	expand(t_list *list_cmd)
 	while (tmp)
 	{
 		cmd = (t_cmd *)tmp->content;
-		if (expand_redir(cmd->redir))
-			return (1);
-		if (expand_args(cmd->args))
-			return (1);
+		expand_redir(cmd->redir);
+		expand_args(cmd->args);
+		remove_null_args(cmd);
 		tmp = tmp->next;
 	}
 	return (0);
@@ -117,11 +140,3 @@ int	check_valid_variable(char *str)
 	}
 	return (0);
 }
-/*
-manishell$ exho a$a
-exho
-a
-1
-2
-3
-*/
